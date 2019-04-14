@@ -1,37 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { PlanetService } from './../planet.service';
+import { Planet } from '../planet';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage implements OnInit {
-  public population: string;
-  public climate: string;
-  public terrain: string;
-  public numFilms: number;
-  public auxNum: number;
+export class HomePage {
+  public planet: Planet;
+  public numFilms = 0;
 
-  ngOnInit() {
+  constructor(private planetService: PlanetService) {
     this.getPlanet();
   }
 
-  getRandomNum() {
+  getRandomNum(): number {
     // generate random number between 0 and 61;
     return Math.floor(Math.random() * 61);
   }
 
   getPlanet() {
-    const rnd = this.getRandomNum();
-
-    if (this.auxNum !== rnd) {
-      this.auxNum = rnd;
-      // do shit
-    } else {
-      // re-run getRandomNum, avoid to display the same planet multiple times in a row;
-      this.getPlanet();
+    try {
+      const result = this.planetService.fethPlanets(this.getRandomNum());
+      result.subscribe(data => {
+        this.planet = data;
+        console.log('planet', this.planet);
+      });
+    } catch (error) {
+      console.log(error);
     }
-
-    console.log('getPlanet', rnd);
   }
 }
