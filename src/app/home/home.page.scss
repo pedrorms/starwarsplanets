@@ -1,6 +1,7 @@
 .card {
-  width: 75%;
+  width: 65%;
   margin: 35% auto 0;
+  border-radius: 1em;
 }
 
 .header {
@@ -16,10 +17,10 @@
 .card-content {
   background-color: #fcfcfc;
 
-  .items {
+  .item {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1em;
+    grid-gap: 0.5em;
 
     p {
       text-align: right;

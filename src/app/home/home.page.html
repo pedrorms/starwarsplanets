@@ -8,29 +8,32 @@
     </ion-card-header>
 
     <ion-card-content class="card-content" color="secondary">
-      <div class="items">
+      <div class="item">
         <p>Population:</p>
-        <p>mozão</p>
+        <p>{{ population }}</p>
       </div>
 
-      <div class="items">
+      <div class="item">
         <p>Climate:</p>
-        <p>é</p>
+        <p>{{ climate }}</p>
       </div>
 
-      <div class="items">
+      <div class="item">
         <p>Terrain:</p>
-        <p>top</p>
+        <p>{{ terrain }}</p>
       </div>
 
-      <p>Featured in {{ numFilms }} films</p>
+      <p *ngIf="numFilms === 1; else notOne">Featured in {{ numFilms }} film</p>
+      <ng-template #notOne>
+        <p>Featured in {{ numFilms }} films</p>
+      </ng-template>
     </ion-card-content>
   </ion-card>
 
   <!-- button -->
   <ion-row center>
     <ion-col text-center>
-      <ion-button color="dark" shape="round" strong="true" padding>
+      <ion-button (click)="getPlanet()" color="dark" shape="round" strong="true" padding>
         Next!
       </ion-button>
     </ion-col>
