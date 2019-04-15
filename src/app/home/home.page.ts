@@ -16,8 +16,8 @@ export class HomePage {
   }
 
   getRandomNum(): number {
-    // generate random number between 0 and 61;
-    return Math.floor(Math.random() * 61);
+    // generate random number between 1 and 61;
+    return Math.floor(Math.random() * 60 + 1);
   }
 
   getPlanet() {

@@ -1,6 +1,6 @@
 <!-- title -->
-<ion-header class="ionheader">
-  <ion-toolbar>
+<ion-header class="ionheader" no-border>
+  <ion-toolbar class="iontoolbar">
     <ion-title>
       Star Wars Planets
     </ion-title>
@@ -13,24 +13,24 @@
   <ion-card class="card">
     <ion-card-header class="header">
       <ion-card-title class="title">
-        {{ planet.name }}
+        {{ planet.name | titlecase }}
       </ion-card-title>
     </ion-card-header>
 
     <ion-card-content class="card-content" color="secondary">
       <div class="item">
         <p>Population:</p>
-        <p>{{ planet.population }}</p>
+        <p>{{ planet.population | titlecase }}</p>
       </div>
 
       <div class="item">
         <p>Climate:</p>
-        <p>{{ planet.climate }}</p>
+        <p>{{ planet.climate | titlecase }}</p>
       </div>
 
       <div class="item">
         <p>Terrain:</p>
-        <p>{{ planet.terrain }}</p>
+        <p>{{ planet.terrain | titlecase }}</p>
       </div>
 
       <p *ngIf="planet.films.length === 1; else notOne">Featured in {{ planet.films.length }} film</p>
@@ -49,6 +49,15 @@
     </ion-col>
   </ion-row>
 </ion-content>
+
+<!-- footer -->
+<ion-footer class="ionfooter" no-border>
+  <ion-toolbar class="iontoolbar">
+    <a href="https://github.com/pedrorms">
+      <ion-icon name="logo-github" style="font-size: 2em"></ion-icon>
+    </a>
+  </ion-toolbar>
+</ion-footer>
 
 <!-- 
 GET: planets/ => count: 61 => (planets/0 => planets/61)

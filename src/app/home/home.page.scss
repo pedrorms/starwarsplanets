@@ -3,8 +3,22 @@
   margin-bottom: 3em;
 }
 
+.ionfooter {
+  text-align: center;
+}
+
+.iontoolbar {
+  --border-width: 0px;
+  --background: black;
+  --color: #ffe300;
+
+  a {
+    color: #ffe300;
+  }
+}
+
 .card {
-  width: 65%;
+  width: 70%;
   margin: auto;
   border-radius: 1em;
 }
